@@ -1,7 +1,7 @@
 import './MovieCard.css'
 import { useState } from 'react'
 
-export const MovieCard = ({title, genre, release_date}) => {
+const MovieCard = ({title, genre, release_date}) => {
     const [disabled, setDisabled] = useState(false)
 
     const handleClick = () => {
@@ -18,3 +18,5 @@ export const MovieCard = ({title, genre, release_date}) => {
         
     </>
 }
+
+export default MovieCard

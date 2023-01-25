@@ -1,9 +1,9 @@
-import { MovieCard } from './MovieCard'
+import MovieCard from './MovieCard'
 import { getMovies } from '../services/getMovies'
 import { useState, useEffect} from 'react'
 import './MovieList.css'
 
-export const MovieList = ({search}) => {
+const MovieList = ({search}) => {
     const [movies, setMovies] = useState([])
 
     useEffect(() => {
@@ -24,3 +24,4 @@ export const MovieList = ({search}) => {
         </div>
     )        
 }
+export default MovieList
