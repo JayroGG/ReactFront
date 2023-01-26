@@ -1,19 +1,14 @@
 import './App.css';
 import MovieList from './components/MovieList'
-import { useState } from 'react';
+import SearchBar from './components/SearchBar';
+import { Route } from 'wouter';
 
-function App() {  
-  const [keyword, setKeyword] = useState('')
-//Change input handleler
-  const handleChange = (evt) => {
-    setKeyword(evt.target.value)
-  }
+function App() {
   return (
     <div className="App">
-        <h1>Movies: </h1>
-          <input onChange={handleChange} type="text" value={keyword} placeholder='Search your movie...' />     
-        <MovieList search={keyword}/>
-       
+      <h1>Movies: </h1>
+      <SearchBar />
+      <Route path="/search/:search" component={MovieList} />
     </div>
   )
 }
