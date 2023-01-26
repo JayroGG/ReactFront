@@ -2,7 +2,7 @@ import MovieCard from './MovieCard'
 import './MovieList.css'
 import { useMovies } from '../hooks/useMovies'
 
-const MovieList = ({ params }) => {
+const MovieList = ({ params } = {}) => {
     const { search } = params
     const movies = useMovies({ search })
     return (
