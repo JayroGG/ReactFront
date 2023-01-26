@@ -15,7 +15,6 @@ const MovieCard = ({title, genre, release_date}) => {
             <span>Genre: {genre}</span>
             <span>Release Date: {release_date}</span>
         </div>
-        
     </>
 }
 

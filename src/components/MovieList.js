@@ -1,17 +1,11 @@
 import MovieCard from './MovieCard'
-import { getMovies } from '../services/getMovies'
-import { useState, useEffect} from 'react'
 import './MovieList.css'
+import { useMovies } from '../hooks/useMovies'
 
 const MovieList = ({search}) => {
-    const [movies, setMovies] = useState([])
-
-    useEffect(() => {
-        getMovies({ page: search }).then(moviesList => setMovies(moviesList))
-    },[search])
-
+   const movies = useMovies({search})
     return (
-        <div>
+        <>
         {
             movies.map(({id, title, genre, release_date}) => {
                 return <MovieCard 
@@ -21,7 +15,7 @@ const MovieList = ({search}) => {
                     release_date={release_date}/>
             })
         }
-        </div>
+        </>
     )        
 }
 export default MovieList
