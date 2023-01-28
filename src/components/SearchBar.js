@@ -1,3 +1,4 @@
+import './SearchBar.css'
 import { useState } from 'react';
 import { useLocation } from 'wouter';
 

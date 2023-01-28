@@ -1,0 +1,37 @@
+.menu {
+  margin-bottom: 1rem;
+  border: transparent;
+  background-color: transparent;
+}
+
+.left {
+  border-radius: 2rem;
+  background-color: black;
+  padding-inline: 4rem;
+  padding-block: 3rem;
+}
+
+.s1{
+  font-size: x-large;
+}
+
+.s2{
+  font-size: large;
+}
+
+.s3{
+  font-size: medium;
+}
+
+.s4{
+  font-size: small;
+}
+
+a {
+  color: azure;
+  text-decoration: none;
+}
+
+button {
+  display: flex;
+}
