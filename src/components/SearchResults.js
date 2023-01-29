@@ -2,7 +2,8 @@
 import { useMovies } from '../hooks/useMovies'
 import MovieCard from './MovieCard'
 
-export const SearchResults = ({ search } = {}) => {
+export const SearchResults = ({ params } = {}) => {
+    const { search } = params
     const { movies, loading } = useMovies({ search })
     return <>
         {loading

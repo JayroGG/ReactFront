@@ -1,8 +1,8 @@
 import './MovieList.css'
 import { SearchResults } from './SearchResults'
 
-const MovieList = ({ search } = {}) => {
+const MovieList = ({ params } = {}) => {
 
-    return <SearchResults search={search} />
+    return <SearchResults params={params} />
 }
 export default MovieList
