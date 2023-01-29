@@ -7,7 +7,7 @@ const MovieList = ({ params } = {}) => {
     const {movies, loading} = useMovies({ search })
     return ( <>
         { loading
-             ? <h1>Loading ...</h1>
+             ? <span>🫧Loading 🫧</span>
              : movies.map(({ id, title, genre, release_date }) => {
                 return <MovieCard
                     key={id}
