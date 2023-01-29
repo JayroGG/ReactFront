@@ -7,13 +7,13 @@ import { Home } from './pages/Home';
 function App() {
   return (
     <div className="App">
-      <Link to='/'><h1>Movies:</h1></Link>
+      <Link to='/'><h1>Movies</h1></Link>
       <SearchBar />
       <Route path="/" component={Home} />
       <Route path="/search/" component={Home} />
       <Route path="/all" component={MovieList} />
       <Route path="/search/:search" component={MovieList} />
-      
+
     </div>
   )
 }
