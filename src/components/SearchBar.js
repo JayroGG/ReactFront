@@ -4,7 +4,7 @@ import { useLocation } from 'wouter';
 
 const SearchBar = () => {
     const [search, setSearch] = useState('')
-    const [path, pushLocation] = useLocation()
+    const [path, pushLocation] = useLocation() 
     //Submit form handlerer
     const handleSubmit = evt => {
         evt.preventDefault()
