@@ -1,16 +1,18 @@
 
 import { useMovies } from '../hooks/useMovies'
-import MovieCard from './MovieCard'
+import MovieCard from './MovieCard/MovieCard'
+import LoadingSpinner from './/Spinner/Spinner'
 
-export const SearchResults = ({ params } = {}) => {
+export const SearchResults = ({ params = ''}) => {
     const { search } = params
     const { movies, loading } = useMovies({ search })
     return <>
         {loading
-            ? <span className='loading'>🫧Loading 🫧</span>
+            ? <LoadingSpinner />
             : movies.map(({ id, title, genre, release_date }) => {
                 return <MovieCard
                     key={id}
+                    id = {id}
                     title={title}
                     genre={genre}
                     release_date={release_date} />

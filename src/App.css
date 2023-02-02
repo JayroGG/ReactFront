@@ -19,7 +19,8 @@
  }
  
 h1 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
   color: rgb(206, 197, 197);
-  text-shadow: 1rem .5em 1rem #000000;
+  text-shadow: .5rem .3em 1rem #000000;
 }
+

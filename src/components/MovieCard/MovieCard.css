@@ -1,0 +1,64 @@
+span{
+    display: grid;
+    padding: 0rem;
+}
+
+.card{
+    text-align: left;
+    border-radius: 2rem;
+    padding: 3rem;
+    margin: 3rem;
+    background-color: black;
+    box-shadow: rgba(115, 101, 101, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    animation: present 1s forwards 1; 
+}
+
+.bigger {
+    animation: bigger .5s forwards 1;
+}
+
+.smaller {
+    animation: smallerCard .3s forwards 1;
+    animation-timing-function: ease-in;
+}
+
+@keyframes bigger {
+    from {
+        padding: relative;
+    }
+    to {
+        padding: 5rem;
+    }
+}
+
+
+@keyframes smallerCard {
+    0%{
+        padding: 5rem;
+    }
+    50% {
+        padding: 4.5rem;
+    }
+    75% {
+        padding: 3rem;
+    }
+    90% {
+        padding: 2.85rem;
+    }
+    100% {
+        padding: 3rem;
+    }
+}
+
+@keyframes present {
+    from {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background-color: rgb(61, 18, 76);
+    }
+    to {
+        padding: 3rem;
+        margin-bottom: 3rem;
+        background-color: black;
+    }
+}
