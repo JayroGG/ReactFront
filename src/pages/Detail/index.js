@@ -1,11 +1,11 @@
 import { useContext } from "react"
+import MovieCard from "../../components/MovieCard/MovieCard"
 import MovieContext from "../../context/MovieContext"
 
-function Detail ({params}) {
-    const context = useContext(MovieContext)
-    //console.log(params.id)
-    console.log(context)
-    return (<h1>Movie id: {params.id}</h1>)
+function Detail({ params }) {
+    const { movies } = useContext(MovieContext)
+    const movie = movies.find(currentMovie => currentMovie.id.toString() === params.id)
+    return <MovieCard {...movie} />
 }
 
 export default Detail

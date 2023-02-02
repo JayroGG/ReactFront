@@ -1,14 +1,16 @@
 import { getMovies } from '../services/getMovies'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import MovieContext from '../context/MovieContext'
 
 export const useMovies = ({ search = '' }) => {
-    const [movies, setMovies] = useState([])
-    const [loading, setLoading] = useState(true)
-    //Get the localStorage last search
-    const searchThis = search || localStorage.getItem('lastsearch')
-
-    //Filling the movies array with data from getMovies
+    const [loading, setLoading] = useState(false)
+    const { movies, setMovies } = useContext(MovieContext)
+    
     useEffect(() => {
+        //Get the localStorage last search
+        setLoading(true)
+        const searchThis = search || localStorage.getItem('lastsearch')
+        
         getMovies({ page: searchThis }).then(
             moviesList => {
                 setMovies(moviesList)
@@ -17,6 +19,7 @@ export const useMovies = ({ search = '' }) => {
                 localStorage.setItem('lastsearch', search)
             }
         )
-    }, [searchThis, search])
+    }, [search, setMovies])
+
     return { movies, loading }
 }
