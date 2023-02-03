@@ -1,9 +1,8 @@
-import { useContext } from "react"
 import MovieCard from "../../components/MovieCard/MovieCard"
-import MovieContext from "../../context/MovieContext"
+import { useGlobalMovies } from "../../hooks/useGlobalMovies"
 
 function Detail({ params }) {
-    const { movies } = useContext(MovieContext)
+    const movies = useGlobalMovies()
     const movie = movies.find(currentMovie => currentMovie.id.toString() === params.id)
     return <MovieCard {...movie} />
 }

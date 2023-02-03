@@ -1,7 +1,7 @@
 
 import { useMovies } from '../hooks/useMovies'
 import MovieCard from './MovieCard/MovieCard'
-import LoadingSpinner from './/Spinner/Spinner'
+import LoadingSpinner from './Spinner/Spinner'
 
 export const SearchResults = ({ params = ''}) => {
     const { search } = params
