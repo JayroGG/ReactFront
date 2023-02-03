@@ -9,7 +9,7 @@ span{
     padding: 3rem;
     margin: 3rem;
     background-color: black;
-    box-shadow: rgba(115, 101, 101, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow: -25px -25px 70px -40px rgb(168, 123, 45), 25px 25px 70px -40px rgb(163, 72, 196);
     animation: present 1s forwards 1; 
 }
 
@@ -24,17 +24,21 @@ span{
 
 @keyframes bigger {
     from {
+        box-shadow: -25px -25px 70px -40px rgb(168, 123, 45), 25px 25px 70px -40px rgb(163, 72, 196);
         padding: relative;
+        background-color: black;
     }
     to {
-        padding: 5rem;
+        box-shadow: 5px 5px 50px -20px rgb(168, 123, 45), -5px -5px 50px -20px rgb(163, 72, 196);
+        padding: 6rem;
+        background-color: rgba(113, 128, 149, 0.02);
     }
 }
 
 
 @keyframes smallerCard {
     0%{
-        padding: 5rem;
+        padding: 6rem;
     }
     50% {
         padding: 4.5rem;
