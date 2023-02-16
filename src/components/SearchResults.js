@@ -3,7 +3,7 @@ import { useMovies } from '../hooks/useMovies'
 import MovieCard from './MovieCard/MovieCard'
 import LoadingSpinner from './Spinner/Spinner'
 
-export const SearchResults = ({ params = ''}) => {
+const SearchResults = ({ params = ''}) => {
     const { search } = params
     const { movies, loading } = useMovies({ search })
     return <>
@@ -20,3 +20,5 @@ export const SearchResults = ({ params = ''}) => {
         }
     </>
 }
+
+export default SearchResults

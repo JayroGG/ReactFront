@@ -1,10 +1,15 @@
 import './App.css';
+import { Route, Link } from 'wouter';
+// Pages
+import { Home } from './pages/Home';
+import { Save } from './pages/Save';
+import { Detail } from './pages/Detail';
+// Components
 import MovieList from './components/MovieList/MovieList'
 import SearchBar from './components/SearchBar/SearchBar';
-import { Route, Link } from 'wouter';
-import { Home } from './pages/Home';
-import MovieContext, { MovieContextProvider } from './context/MovieContext';
-import Detail from './pages/Detail';
+// Contexts
+import { MovieContextProvider } from './context/MovieContext';
+
 
 function App() {
   return (
@@ -17,6 +22,7 @@ function App() {
         <Route path="/all" component={MovieList} />
         <Route path="/search/:search" component={MovieList} />
         <Route path='/detail/:id' component={Detail} />
+        <Route path='/save' component={Save} />
       </div>
     </MovieContextProvider>
   )

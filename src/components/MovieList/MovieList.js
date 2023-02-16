@@ -1,5 +1,5 @@
 import './MovieList.css'
-import { SearchResults } from '../SearchResults'
+import SearchResults from '../SearchResults'
 
 const MovieList = ({ params } = {}) => {
 

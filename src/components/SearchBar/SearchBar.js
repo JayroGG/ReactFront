@@ -16,7 +16,7 @@ const SearchBar = () => {
         setSearch(evt.target.value)
     }
     return <form onSubmit={handleSubmit}>
-        <input onChange={handleChange} type="text" value={search} placeholder='Search your movie...' />
+        <input onChange={handleChange} type="text" value={search} placeholder='Search your movie...' className='search'/>
     </form>
 }
 

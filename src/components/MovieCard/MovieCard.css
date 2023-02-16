@@ -1,16 +1,16 @@
-span{
+span {
     display: grid;
     padding: 0rem;
 }
 
-.card{
+.card {
     text-align: left;
     border-radius: 2rem;
     padding: 3rem;
     margin: 3rem;
     background-color: black;
     box-shadow: -25px -25px 70px -40px rgb(168, 123, 45), 25px 25px 70px -40px rgb(163, 72, 196);
-    animation: present 1s forwards 1; 
+    animation: present 1s forwards 1;
 }
 
 .bigger {
@@ -28,6 +28,7 @@ span{
         padding: relative;
         background-color: black;
     }
+
     to {
         box-shadow: 5px 5px 50px -20px rgb(168, 123, 45), -5px -5px 50px -20px rgb(163, 72, 196);
         padding: 6rem;
@@ -37,18 +38,22 @@ span{
 
 
 @keyframes smallerCard {
-    0%{
+    0% {
         padding: 6rem;
     }
+
     50% {
         padding: 4.5rem;
     }
+
     75% {
         padding: 3rem;
     }
+
     90% {
         padding: 2.85rem;
     }
+
     100% {
         padding: 3rem;
     }
@@ -60,6 +65,7 @@ span{
         margin-bottom: 1rem;
         background-color: rgb(61, 18, 76);
     }
+
     to {
         padding: 3rem;
         margin-bottom: 3rem;
