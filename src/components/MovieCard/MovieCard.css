@@ -17,7 +17,7 @@ span {
     animation: bigger .5s forwards 1;
 }
 
-.card:not(:hover) {
+.smaller {
     animation: smaller .4s forwards 1;
     animation-timing-function: ease-in;
 }
@@ -30,7 +30,7 @@ span {
     }
 
     to {
-        padding: 3rem;
+        padding: 4rem;
         margin-bottom: 3rem;
         background-color: black;
     }
@@ -39,7 +39,7 @@ span {
 @keyframes bigger {
     from {
         box-shadow: -25px -25px 70px -40px rgb(168, 123, 45), 25px 25px 70px -40px rgb(163, 72, 196);
-        padding: relative;
+        padding: 4rem;
         background-color: black;
     }
 
@@ -61,14 +61,14 @@ span {
     }
 
     75% {
-        padding: 3rem;
+        padding: 3.3rem;
     }
 
     90% {
-        padding: 2.85rem;
+        padding: 3.5rem;
     }
 
     100% {
-        padding: 3rem;
+        padding: 4rem;
     }
 }
