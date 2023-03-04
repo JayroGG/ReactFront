@@ -29,6 +29,9 @@ this.addEventListener('fetch', evt => {
           cache.put(evt.request, networkResponse.clone())
 
           return networkResponse
+        }).catch(err => {
+          console.error(err)
+          return caches.match('offline.html')
         })
 
         return cachedResponse || fetchedResponse
