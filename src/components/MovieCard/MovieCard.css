@@ -13,13 +13,27 @@ span {
     animation: present 1s forwards 1;
 }
 
-.bigger {
+.card:hover {
     animation: bigger .5s forwards 1;
 }
 
-.smaller {
-    animation: smallerCard .3s forwards 1;
+.card:not(:hover) {
+    animation: smaller .4s forwards 1;
     animation-timing-function: ease-in;
+}
+
+@keyframes present {
+    from {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        background-color: rgb(61, 18, 76);
+    }
+
+    to {
+        padding: 3rem;
+        margin-bottom: 3rem;
+        background-color: black;
+    }
 }
 
 @keyframes bigger {
@@ -37,7 +51,7 @@ span {
 }
 
 
-@keyframes smallerCard {
+@keyframes smaller {
     0% {
         padding: 6rem;
     }
@@ -56,19 +70,5 @@ span {
 
     100% {
         padding: 3rem;
-    }
-}
-
-@keyframes present {
-    from {
-        padding: 1rem;
-        margin-bottom: 1rem;
-        background-color: rgb(61, 18, 76);
-    }
-
-    to {
-        padding: 3rem;
-        margin-bottom: 3rem;
-        background-color: black;
     }
 }
