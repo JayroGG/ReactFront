@@ -1,37 +1,47 @@
-const CACHE_NAME = 'version-1'
+// Establishing a cache name
+const cacheName = 'version-1'
 const urlToCache = ['index.html', 'offline.html']
 
 // Install
 this.addEventListener('install', evt => {
   evt.waitUntil(
     caches
-      .open(CACHE_NAME)
+      .open(cacheName)
       .then(cache => {
         console.log('Opened Cache')
+        
         return cache.addAll(urlToCache)
       })
   )
 })
 
-// Fetch handler
+// Handling the fetch events to state-while-revalidate
 this.addEventListener('fetch', evt => {
-  evt.respondWith(
-    caches.match(evt.request).then(res => {
-      return fetch(evt.request).catch(() => caches.match('offline.html'))
+  if (evt.request.destination === 'css') {
+    evt.respondWith(caches.open(cacheName)).then(cache => {
+      return cache.match(evt.request).then(cachedResponse => {
+        const fetchedResponse = fetch(evt.request).then(networkResponse => {
+          cache.put(evt.request, networkResponse.clone())
+
+          return networkResponse
+        })
+        
+        return cachedResponse || fetchedResponse
+      })
     })
-  )
+  }
 })
 
 // Activate 
 this.addEventListener('activate', evt => {
   const cacheWhiteList = []
-  cacheWhiteList.push(CACHE_NAME)
+  cacheWhiteList.push(cacheName)
   evt.waitUntil(caches.keys().then(cacheNames => {
     Promise.all(
       cacheNames.map(cacheName => {
-        if (!cacheWhiteList.includes(cacheName)) {
-          return caches.delete(cacheName)
-        }
+        
+        // Delete the cached files if you're not on the whitelist
+        return !cacheWhiteList.includes(cacheName) ? caches.delete(cacheName) : console.log('You are OK')
       })
     )
   }))
