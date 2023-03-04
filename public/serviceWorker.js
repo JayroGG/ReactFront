@@ -9,7 +9,7 @@ this.addEventListener('install', evt => {
       .open(cacheName)
       .then(cache => {
         console.log('Opened Cache')
-        
+
         return cache.addAll(urlToCache)
       })
   )
@@ -17,19 +17,24 @@ this.addEventListener('install', evt => {
 
 // Handling the fetch events to state-while-revalidate
 this.addEventListener('fetch', evt => {
-  if (evt.request.destination === 'css') {
-    evt.respondWith(caches.open(cacheName)).then(cache => {
+  if (evt.request.url.startsWith('chrome-extension://')) {
+    return;
+  }
+  evt.respondWith(
+    caches.open(cacheName).then(cache => {
+
+      console.log('intercepting fetch petition')
       return cache.match(evt.request).then(cachedResponse => {
         const fetchedResponse = fetch(evt.request).then(networkResponse => {
           cache.put(evt.request, networkResponse.clone())
 
           return networkResponse
         })
-        
+
         return cachedResponse || fetchedResponse
       })
     })
-  }
+  )
 })
 
 // Activate 
@@ -37,9 +42,9 @@ this.addEventListener('activate', evt => {
   const cacheWhiteList = []
   cacheWhiteList.push(cacheName)
   evt.waitUntil(caches.keys().then(cacheNames => {
-    Promise.all(
+    return Promise.all(
       cacheNames.map(cacheName => {
-        
+
         // Delete the cached files if you're not on the whitelist
         return !cacheWhiteList.includes(cacheName) ? caches.delete(cacheName) : console.log('You are OK')
       })

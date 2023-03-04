@@ -6,8 +6,9 @@ const Form = () => {
   const [title, setTitle] = useState('')
   const [genre, setGenre] = useState('');
   const [releaseDate, setReleaseDate] = useState('');
+  const [uploadError, setUploadError] = useState(null);
 
-  const [path, pushLocation] = useLocation() 
+  const [path, pushLocation] = useLocation()
 
   const handleTitle = evt => {
     setTitle(evt.target.value)
@@ -35,9 +36,15 @@ const Form = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(movie)
-    }).then(pushLocation('/all'))
+    }).then(res => {
+      if (!res.ok) {
+        throw new Error('Network response was not ok')
+      }
+      pushLocation('/all')
+    }).catch(err => setUploadError(err))
   }
   return <form onSubmit={handleSubmit} className='wrapper'>
+    {uploadError && <p>Error uploading item: {uploadError.message}</p>}
     <label className='label'>Title</label>
     <input type="text" value={title} onChange={handleTitle} className='form' />
     <label className='label'>Genre</label>
