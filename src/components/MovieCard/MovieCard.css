@@ -7,7 +7,7 @@ span {
     text-align: left;
     border-radius: 2rem;
     padding: 3rem;
-    margin: 3rem;
+    margin-block: 2rem;
     background-color: black;
     box-shadow: -25px -25px 70px -40px rgb(168, 123, 45), 25px 25px 70px -40px rgb(163, 72, 196);
     animation: present 1s forwards 1;
@@ -46,6 +46,7 @@ span {
     to {
         box-shadow: 5px 5px 50px -20px rgb(168, 123, 45), -5px -5px 50px -20px rgb(163, 72, 196);
         padding: 4.5rem;
+        margin-block: 1.5rem;
         background-color: rgba(113, 128, 149, 0.02);
     }
 }
