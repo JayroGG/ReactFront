@@ -1,14 +1,16 @@
 import './App.css';
 import { Route, Link } from 'wouter';
-// Pages
-import { Home } from './pages/Home';
-import { Save } from './pages/Save';
-import { Detail } from './pages/Detail';
-// Components
-import MovieList from './components/MovieList/MovieList'
-import SearchBar from './components/SearchBar/SearchBar';
+import { lazy, Suspense } from 'react'
 // Contexts
 import { MovieContextProvider } from './context/MovieContext';
+// Pages
+const Home = lazy(() => import('./pages/Home'))
+const Save = lazy(() => import('./pages/Save'))
+const Detail = lazy(() => import('./pages/Detail'))
+// Components
+const MovieList = lazy(() => import('./components/MovieList/MovieList'))
+const SearchBar = lazy(() => import('./components/SearchBar/SearchBar'))
+
 
 
 function App() {
@@ -17,12 +19,14 @@ function App() {
       <div className="App">
         <Link to='/' ><h1>Movies</h1></Link>
         <SearchBar />
-        <Route path="/" component={Home} />
-        <Route path="/search/" component={Home} />
-        <Route path="/all" component={MovieList} />
-        <Route path="/search/:search" component={MovieList} />
-        <Route path='/detail/:id' component={Detail} />
-        <Route path='/save' component={Save} />
+        <Suspense fallback={<p>Loading ...</p>}>
+          <Route path="/" component={Home} />
+          <Route path="/search/" component={Home} />
+          <Route path="/all" component={MovieList} />
+          <Route path="/search/:search" component={MovieList} />
+          <Route path='/detail/:id' component={Detail} />
+          <Route path='/save' component={Save} />
+        </Suspense>
       </div>
     </MovieContextProvider>
   )
