@@ -1,7 +1,7 @@
 import './index.css'
 import { Link } from "wouter";
 
-export function Home () {
+export default function Home () {
   return <>
     <div className='left'>
       <button className='menu s1'><Link to='/all'>All</Link></button>
