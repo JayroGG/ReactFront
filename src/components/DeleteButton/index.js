@@ -14,7 +14,7 @@ const DeleteButton = ({ id }) => {
         throw new Error('Network response was not ok')
       }
       pushLocation('/all')
-    }).catch( error => setDeleteError(error))
+    }).catch( err => setDeleteError(err))
   }
   return <>
     { deleteError && <p>Error deleting item: {deleteError.message}</p>}

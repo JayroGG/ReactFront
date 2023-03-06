@@ -1,12 +1,12 @@
 // Establishing a cache name
-const cacheName = 'version-1'
+const CACHE_NAME = 'version-1'
 const urlToCache = ['index.html', 'offline.html']
 
 // Install
 this.addEventListener('install', evt => {
   evt.waitUntil(
     caches
-      .open(cacheName)
+      .open(CACHE_NAME)
       .then(cache => {
         console.log('Opened Cache')
 
@@ -21,8 +21,7 @@ this.addEventListener('fetch', evt => {
     return;
   }
   evt.respondWith(
-    caches.open(cacheName).then(cache => {
-
+    caches.open(CACHE_NAME).then(cache => {
       console.log('intercepting fetch petition')
       return cache.match(evt.request).then(cachedResponse => {
         const fetchedResponse = fetch(evt.request).then(networkResponse => {
@@ -43,7 +42,7 @@ this.addEventListener('fetch', evt => {
 // Activate 
 this.addEventListener('activate', evt => {
   const cacheWhiteList = []
-  cacheWhiteList.push(cacheName)
+  cacheWhiteList.push(CACHE_NAME)
   evt.waitUntil(caches.keys().then(cacheNames => {
     return Promise.all(
       cacheNames.map(cacheName => {
