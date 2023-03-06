@@ -3,7 +3,7 @@ const CACHE_NAME = 'version-1'
 const urlToCache = ['index.html', 'offline.html']
 
 // Install
-this.addEventListener('install', evt => {
+self.addEventListener('install', evt => {
   evt.waitUntil(
     caches
       .open(CACHE_NAME)
@@ -16,7 +16,7 @@ this.addEventListener('install', evt => {
 })
 
 // Handling the fetch events to state-while-revalidate
-this.addEventListener('fetch', evt => {
+self.addEventListener('fetch', evt => {
   if (evt.request.url.startsWith('chrome-extension://')) {
     return;
   }
@@ -40,7 +40,7 @@ this.addEventListener('fetch', evt => {
 })
 
 // Activate 
-this.addEventListener('activate', evt => {
+self.addEventListener('activate', evt => {
   const cacheWhiteList = []
   cacheWhiteList.push(CACHE_NAME)
   evt.waitUntil(caches.keys().then(cacheNames => {
