@@ -1,4 +1,3 @@
-import './MovieList.css'
 import SearchResults from '../SearchResults'
 
 const MovieList = ({ params } = {}) => {
