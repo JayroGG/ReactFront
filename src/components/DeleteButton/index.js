@@ -7,6 +7,7 @@ const DeleteButton = ({ id }) => {
   const [deleteError, setDeleteError] = useState(null)
 
   const handleClick = () => {
+    alert('deleting')
     fetch(`http://localhost:4000/movies/${id}`, {
       method: 'DELETE'
     }).then(res => {

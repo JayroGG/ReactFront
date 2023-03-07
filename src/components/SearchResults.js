@@ -1,20 +1,16 @@
 import { lazy, Suspense, useState } from 'react'
 import { useMovies } from '../hooks/useMovies'
 import LoadingSpinner from './Spinner/Spinner'
+import PaginationButton from './PaginationButton'
+import { useSelector } from 'react-redux'
 const MovieCard = lazy(() => import('./MovieCard/MovieCard'))
 
 
 const SearchResults = ({ params = '' } = {}) => {
     const { search } = params
-    const limit = 2    
-    const [page, setPage] = useState(0);
-    const handleNext = evt => {
-        setPage(page+1)
-    }
-
-    const handlePrev = evt => {
-        setPage(page-1)
-    }
+    const limit = 2
+    const page = useSelector(state => state.page)
+    console.log(page)
     const url = typeof (search) === 'undefined' ? `http://localhost:4000/movies/?&limit=${limit}&offset=${page * limit}` : `http://localhost:4000/movies/${search}?&limit=2&offset=0`
 
     const { movies, loading } = useMovies({ url: url })
@@ -32,8 +28,8 @@ const SearchResults = ({ params = '' } = {}) => {
                 </Suspense>
             })
         }
-        <button type='button' onClick={handlePrev}>Prev</button>
-        <button type='button' onClick={handleNext}>Next</button>
+        <PaginationButton mode={'prev'} />
+        <PaginationButton mode={'next'} />
     </>
 }
 
