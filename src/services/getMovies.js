@@ -1,6 +1,5 @@
-export const getMovies = async ({ search }) => {
-    const URL = `http://localhost:4000/movies/${search}`
-    const response = await fetch(URL)
+export const getMovies = async ({ url }) => {
+    const response = await fetch(url)
     const { data } = await response.json()
     return data
 }
