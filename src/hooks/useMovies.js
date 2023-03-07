@@ -9,7 +9,7 @@ export const useMovies = ({ search = '' }) => {
     useEffect(() => {
         setLoading(true)
         
-        getMovies({ search: search }).then(
+        getMovies({ search: search }).then( //it can be just search due to same name variable
             moviesList => {
                 setMovies(moviesList)
                 setLoading(false)
