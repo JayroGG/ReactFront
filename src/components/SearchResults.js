@@ -9,8 +9,7 @@ const MovieCard = lazy(() => import('./MovieCard/MovieCard'))
 const SearchResults = ({ params = '' } = {}) => {
     const { search } = params
     const limit = 2
-    const page = useSelector(state => state.page)
-    console.log(page)
+    const page = useSelector(state => state.pagination.page)
     const url = typeof (search) === 'undefined' ? `http://localhost:4000/movies/?&limit=${limit}&offset=${page * limit}` : `http://localhost:4000/movies/${search}?&limit=2&offset=0`
 
     const { movies, loading } = useMovies({ url: url })

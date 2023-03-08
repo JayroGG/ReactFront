@@ -5,7 +5,7 @@ const pageSlice = createSlice({
   initialState: {
     page: 0
   },
-  reducer: {
+  reducers: {
     nextPage: state => {
       state.page += 1
     },
