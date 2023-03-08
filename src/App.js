@@ -17,7 +17,7 @@ function App() {
   return (
     <MovieContextProvider>
       <div className="App">
-        <Link to='/' ><h1>Movies</h1></Link>
+        <Link to='/' ><h4>Movies</h4></Link>
         <SearchBar />
         <Suspense fallback={<p>Loading ...</p>}>
           <Route path="/" component={Home} />

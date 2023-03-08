@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from 'react'
+import { lazy, Suspense } from 'react'
 import { useMovies } from '../hooks/useMovies'
 import LoadingSpinner from './Spinner/Spinner'
 import PaginationButton from './PaginationButton'
@@ -14,6 +14,10 @@ const SearchResults = ({ params = '' } = {}) => {
 
     const { movies, loading } = useMovies({ url: url })
     return <>
+        <p>
+            <PaginationButton mode={'prev'} />
+            <PaginationButton mode={'next'} />
+        </p>
         {loading
             ? <LoadingSpinner />
             : movies.map(({ id, title, genre, release_date }) => {
@@ -27,8 +31,6 @@ const SearchResults = ({ params = '' } = {}) => {
                 </Suspense>
             })
         }
-        <PaginationButton mode={'prev'} />
-        <PaginationButton mode={'next'} />
     </>
 }
 
