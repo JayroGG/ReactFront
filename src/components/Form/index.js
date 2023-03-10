@@ -4,9 +4,10 @@ import './Form.css'
 
 const Form = () => {
   const [title, setTitle] = useState('')
-  const [genre, setGenre] = useState('');
-  const [releaseDate, setReleaseDate] = useState('');
-  const [uploadError, setUploadError] = useState(null);
+  const [genre, setGenre] = useState('')
+  const [releaseDate, setReleaseDate] = useState('')
+  const [uploadError, setUploadError] = useState(null)
+  const BASE_URL = process.env.REACT_APP_API_URL
 
   const [path, pushLocation] = useLocation()
 
@@ -30,7 +31,7 @@ const Form = () => {
       release_date: releaseDate
     }
     //data => pushLocation(`/detail/${data.body.movie.id}`)
-    fetch('http://localhost:4000/movies', {
+    fetch(BASE_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

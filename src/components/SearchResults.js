@@ -8,10 +8,11 @@ const MovieCard = lazy(() => import('./MovieCard/MovieCard'))
 
 const SearchResults = ({ params = '' } = {}) => {
     const { search } = params
+    const BASE_URL = process.env.REACT_APP_API_URL
     const limit = 2
     const page = useSelector(state => state.pagination.page)
-    const url = typeof (search) === 'undefined' ? `http://localhost:4000/movies/?&limit=${limit}&offset=${page * limit}` : `http://localhost:4000/movies/${search}?&limit=2&offset=0`
-
+    const url = typeof (search) === 'undefined' ? `${BASE_URL}/?&limit=${limit}&offset=${page * limit}` : `${BASE_URL}/${search}?&limit=2&offset=0`
+    
     const { movies, loading } = useMovies({ url: url })
     return <>
         <p>

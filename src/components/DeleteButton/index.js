@@ -3,12 +3,12 @@ import { useLocation } from 'wouter'
 import './DeleteButton.css'
 
 const DeleteButton = ({ id }) => {
+  const BASE_URL = process.env.REACT_APP_API_URL
   const [path, pushLocation] = useLocation()
   const [deleteError, setDeleteError] = useState(null)
 
   const handleClick = () => {
-    alert('deleting')
-    fetch(`http://localhost:4000/movies/${id}`, {
+    fetch(`${BASE_URL}/${id}`, {
       method: 'DELETE'
     }).then(res => {
       if (!res.ok) {
