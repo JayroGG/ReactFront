@@ -26,7 +26,7 @@ self.addEventListener('fetch', evt => {
       return cache.match(evt.request).then(cachedResponse => {
         const fetchedResponse = fetch(evt.request).then(networkResponse => {
           cache.put(evt.request, networkResponse.clone())
-
+        
           return networkResponse
         }).catch(err => {
           console.error(err)
